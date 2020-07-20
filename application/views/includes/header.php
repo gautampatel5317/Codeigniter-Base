@@ -187,6 +187,12 @@
             <?php
             }
             ?>
+            <li>
+              <a href="<?php echo base_url(); ?>emailtemplates">
+                <i class="fa fa-envelope-open-o"></i>
+                <span>Email Templates</span>
+              </a>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->

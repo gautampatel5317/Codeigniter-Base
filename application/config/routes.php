@@ -89,5 +89,11 @@ $route['resetPasswordConfirmUser/(:any)'] = "login/resetPasswordConfirmUser/$1";
 $route['resetPasswordConfirmUser/(:any)/(:any)'] = "login/resetPasswordConfirmUser/$1/$2";
 $route['createPasswordUser'] = "login/createPasswordUser";
 
+$route['create'] = "emailtemplates/create";
+$route['store'] = "emailtemplates/store";
+$route['edit'] = "emailtemplates/edit";
+$route['edit/(:num)'] = "emailtemplates/edit/$1";
+$route['editEmailTemplate'] = "emailtemplates/editEmailTemplate";
+$route['deleteEmailtemplate'] = "emailtemplates/deleteEmailtemplate";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
