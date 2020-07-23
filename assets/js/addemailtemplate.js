@@ -8,6 +8,28 @@
  */
 
 $(document).ready(function(){
+
+	jQuery(document).on("click", ".deleteEmailtemplate", function(){
+		var emailId = $(this).data("emailid"),
+			hitURL = baseURL + "deleteEmailtemplate",
+			currentRow = $(this);
+		var confirmation = confirm("Are you sure to delete this user ?");
+		if(confirmation)
+		{
+			jQuery.ajax({
+			type : "POST",
+			dataType : "json",
+			url : hitURL,
+			data : { emailId : emailId } 
+			}).done(function(data){
+				currentRow.parents('tr').remove();
+				if(data.status = true) { alert("Email Template successfully deleted"); window.location.reload();}
+				else if(data.status = false) { alert("Email Template deletion failed"); }
+				else { alert("Access denied..!"); }
+			});
+		}
+	});
+
 	
 	var addemailForm = $("#addemailtemplate");
 	

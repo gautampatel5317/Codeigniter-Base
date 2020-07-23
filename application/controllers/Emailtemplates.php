@@ -29,12 +29,7 @@ class Emailtemplates extends BaseController
         }
         else
         {   
-            $searchText = $this->security->xss_clean($this->input->post('searchText'));
-            $data['searchText'] = $searchText;
-            $this->load->library('pagination');
-            $count = $this->Emailtemplates_model->emailListingCount($searchText);
-            $returns = $this->paginationCompress("emailtemplates/", $count, 10 );    
-            $data['data'] = $this->Emailtemplates_model->get_emailtemplates($searchText, $returns["page"], $returns["segment"]);
+            $data['data'] = $this->Emailtemplates_model->get_emailtemplates();
             $this->global['pageTitle'] = 'CodeInsect : Email Templates Listing'; 
             $this->loadViews("emailtemplates/list", $this->global, $data, NULL);
         }
@@ -47,7 +42,6 @@ class Emailtemplates extends BaseController
         }
         else
         { 
-            $this->load->model('Emailtemplates_model');        
             $data['type'] = $this->Emailtemplates_model->getTemplateType();
             $data['placeholder'] = $this->Emailtemplates_model->getTemplatePlaceholder();
             $this->global['pageTitle'] = 'CodeInsect : Add New Email Templates';
@@ -168,9 +162,7 @@ class Emailtemplates extends BaseController
         {
             $emailId = $this->input->post('emailId');
             $emailInfo = array('isDeleted'=>1,'updatedBy'=>$this->vendorId, 'updatedDtm'=>date('Y-m-d H:i:s'));
-            
             $result = $this->Emailtemplates_model->deleteEmailtemplate($emailId, $emailInfo);
-            
             if ($result > 0) { echo(json_encode(array('status'=>TRUE))); }
             else { echo(json_encode(array('status'=>FALSE))); }
         }

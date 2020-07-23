@@ -34,6 +34,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -192,6 +193,18 @@
                 <i class="fa fa-envelope-open-o"></i>
                 <span>Email Templates</span>
               </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-users"></i> <span>Master</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url(); ?>country"><i class="fa fa-flag"></i> Country</a></li>
+                <li><a href="<?php echo base_url(); ?>state"><i class="fa fa-city"></i> State</a></li>
+              </ul>
             </li>
           </ul>
         </section>

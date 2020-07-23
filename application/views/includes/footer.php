@@ -12,6 +12,9 @@
     <!-- <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js" type="text/javascript"></script> -->
     <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/validation.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         var windowURL = window.location.href;
         pageURL = windowURL.substring(0, windowURL.lastIndexOf('/'));
@@ -22,5 +25,18 @@
             y.addClass('active');
             y.parent().addClass('active');
     </script>
+    <script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
   </body>
 </html>
