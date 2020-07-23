@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bower_components/ckeditor/ckeditor.js"></script>
+
     <script type="text/javascript">
         var windowURL = window.location.href;
         pageURL = windowURL.substring(0, windowURL.lastIndexOf('/'));
@@ -36,6 +38,13 @@
       "info": true,
       "autoWidth": false
     });
+  });
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
   });
 </script>
   </body>
