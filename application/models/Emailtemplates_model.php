@@ -7,17 +7,17 @@ class Emailtemplates_model extends CI_Model{
         $query = $this->db->get('tbl_email_templates');
         return $query->result();
     }
-    function getTemplateType()
+    public function getTemplateType()
     {
         $query = $this->db->get('tbl_email_template_types');
         return $query->result();
     }
-    function getTemplatePlaceholder()
+    public function getTemplatePlaceholder()
     {
         $query = $this->db->get('tbl_email_template_placeholders');
         return $query->result();
     }
-    function addNewEmailTemplate($emailInfo)
+    public function addNewEmailTemplate($emailInfo)
     {
         $this->db->trans_start();
         $this->db->insert('tbl_email_templates', $emailInfo);
@@ -25,20 +25,20 @@ class Emailtemplates_model extends CI_Model{
         $this->db->trans_complete();
         return $insert_id;
     }
-    function getEmailTemplatesInfo($emailId)
+    public function getEmailTemplatesInfo($emailId)
     {
         $this->db->where('isDeleted', 0);
         $this->db->where('id', $emailId);
         $query = $this->db->get('tbl_email_templates');
         return $query->row();
     }
-    function editEmailTemplate($emailInfo, $emailId)
+    public function editEmailTemplate($emailInfo, $emailId)
     {
         $this->db->where('id', $emailId);
         $this->db->update('tbl_email_templates', $emailInfo);
         return TRUE;
     }
-    function deleteEmailtemplate($emailId, $emailInfo)
+    public function deleteEmailtemplate($emailId, $emailInfo)
     {
         $this->db->where('id', $emailId);
         $this->db->update('tbl_email_templates', $emailInfo);

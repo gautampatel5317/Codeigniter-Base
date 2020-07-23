@@ -11,9 +11,9 @@ $(document).ready(function(){
 
 	jQuery(document).on("click", ".deleteEmailtemplate", function(){
 		var emailId = $(this).data("emailid"),
-			hitURL = baseURL + "deleteEmailtemplate",
+			hitURL = baseURL + "emailtemplates/deleteEmailtemplate",
 			currentRow = $(this);
-		var confirmation = confirm("Are you sure to delete this user ?");
+		var confirmation = confirm("Are you sure to delete this Email Template ?");
 		if(confirmation)
 		{
 			jQuery.ajax({
