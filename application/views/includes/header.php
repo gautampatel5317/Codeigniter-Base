@@ -16,6 +16,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/select2/dist/css/select2.min.css">
     <style>
     	.error{
     		color:red;
@@ -143,7 +144,7 @@
                         </span>
                       </a>
                       <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                        <li><a href="<?php echo base_url(); ?>country"><i class="fa fa-circle-o"></i> Level Three</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
                       </ul>
                     </li>
@@ -195,6 +196,7 @@
               </a>
             </li>
             <li class="treeview">
+            <!-- <li class="treeview"> -->
               <a href="#">
                 <i class="fa fa-users"></i> <span>Master</span>
                 <span class="pull-right-container">
@@ -203,7 +205,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url(); ?>country"><i class="fa fa-flag"></i> Country</a></li>
-                <li><a href="<?php echo base_url(); ?>state"><i class="fa fa-city"></i> State</a></li>
+                <li><a href="<?php echo base_url(); ?>state"><i class="fa fa-building-o"></i> State</a></li>
+                <li><a href="<?php echo base_url(); ?>city"><i class="fa fa-building-o"></i> City</a></li>
               </ul>
             </li>
           </ul>

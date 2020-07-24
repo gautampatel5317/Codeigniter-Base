@@ -91,7 +91,7 @@ class State extends BaseController
         $stateInfo = array('isDeleted'=>1,'updatedBy'=>$this->vendorId, 'updatedDtm'=>date('Y-m-d H:i:s'));
         $result = $this->State_model->deleteState($stateId, $stateInfo);
         if ($result > 0) { echo(json_encode(array('status'=>TRUE))); }
-        else { echo(json_encode(array('status'=>FALSE))); 
+        else { echo(json_encode(array('status'=>FALSE))); }
     }
 }
 

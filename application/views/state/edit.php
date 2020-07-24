@@ -1,13 +1,13 @@
 <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        <i class="fa fa-envelope-open-o"></i> State Management
+        <i class="fa fa-building-o"></i> State Management
         <small>Add / Edit State</small>
       </h1>
     </section>
     <section class="content">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Update State Details</h3>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="box-footer">
                             <input type="submit" class="btn btn-primary" value="Update" />
-                            <a href="<?php echo base_url() ?>country"><input type="button" class="btn btn-default" value="Cancel" /></a>
+                            <a href="<?php echo base_url() ?>state"><input type="button" class="btn btn-default" value="Cancel" /></a>
                         </div>
                     </form>
                 </div>
