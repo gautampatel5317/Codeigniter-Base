@@ -15,10 +15,7 @@
     <link href="<?php echo base_url();?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/select2/dist/css/select2.min.css">
-    
-    <link href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <style>
     	.error{
     		color:red;
@@ -37,7 +34,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -138,62 +134,40 @@
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
             </li>
-            <?php
-            if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
-            {
-            ?>
-            <li>
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Task Uploads</span>
-              </a>
-            </li>
-            <?php
-            }
-            if($role == ROLE_ADMIN)
-            {
-            ?>
-            <li>
-              <a href="<?php echo base_url(); ?>userListing">
-                <i class="fa fa-users"></i>
-                <span>Users</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" >
-                <i class="fa fa-files-o"></i>
-                <span>Reports</span>
-              </a>
-            </li>
-            <?php
-            }
-            ?>
-            <li>
-              <a href="<?php echo base_url(); ?>emailtemplates">
-                <i class="fa fa-envelope-open-o"></i>
-                <span>Email Templates</span>
-              </a>
-            </li>
-            <li class="treeview">
-            <!-- <li class="treeview"> -->
-              <a href="#">
-                <i class="fa fa-users"></i> <span>Master</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo base_url(); ?>country"><i class="fa fa-flag"></i> Country</a></li>
-                <li><a href="<?php echo base_url(); ?>state"><i class="fa fa-building-o"></i> State</a></li>
-                <li><a href="<?php echo base_url(); ?>city"><i class="fa fa-building-o"></i> City</a></li>
-              </ul>
-            </li>
+<?php
+if ($role == ROLE_ADMIN || $role == ROLE_MANAGER) {
+	?>
+	<!-- <li>
+		              <a href="#" >
+		                <i class="fa fa-thumb-tack"></i>
+		                <span>Task Status</span>
+		              </a>
+		            </li>
+		            <li>
+		              <a href="#" >
+		                <i class="fa fa-upload"></i>
+		                <span>Task Uploads</span>
+		              </a>
+		            </li> -->
+	<?php
+}
+if ($role == ROLE_ADMIN) {
+	?>
+		            <li>
+		              <a href="<?php echo base_url();?>userListing">
+		                <i class="fa fa-users"></i>
+		                <span>Users</span>
+		              </a>
+		            </li>
+		            <li>
+		              <a href="#" >
+		                <i class="fa fa-files-o"></i>
+		                <span>Reports</span>
+		              </a>
+		            </li>
+	<?php
+}
+?>
           </ul>
         </section>
         <!-- /.sidebar -->

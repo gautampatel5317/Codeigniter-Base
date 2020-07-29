@@ -33,7 +33,7 @@
                         <h3 class="box-title">City List</h3>
                     </div>
                     <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped" id="mytable"> 
                             <thead>
                                 <tr>
                                     <th>City Name</th>
@@ -44,29 +44,6 @@
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php
-                                if(!empty($data))
-                                {
-                                    foreach($data as $record)
-                                    {
-                                ?>
-                                <tr>
-                                    <td><?php echo $record->name ?></td>
-                                    <td><?php echo $record->country_name ?></td>
-                                    <td><?php echo $record->state_name ?></td>
-                                    <td><?php echo ($record->status == '1')?'Active':'InActive'; ?></td>
-                                    <td><?php echo date("d-m-Y", strtotime($record->createdDtm)) ?></td>
-                                    <td class="text-center">
-                                        <a class="btn btn-sm btn-info" href="<?php echo base_url().'city/editCity/'.$record->id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-sm btn-danger deleteCity" href="#" data-cityid="<?php echo $record->id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </tbody>
                         </table>
                      </div>
                 </div>
@@ -75,3 +52,31 @@
     </section>
 </div>
 <script src="<?php echo base_url(); ?>assets/js/city.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+    $(document).ready(function() { 
+        // Ajax Data Load
+        var dataTable = $('#mytable').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: baseURL + "city/getCity",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'post',
+            },
+            order: [],
+            searchDelay: 500,
+            dom: 'lBfrtip',
+            buttons: {
+                buttons: [{
+                        extend: 'copy',className: 'copyButton',exportOptions: { columns: [0, 1, 2, 3] } },
+                        { extend: 'csv',className: 'csvButton',exportOptions: { columns: [0, 1, 2, 3] } },
+                        { extend: 'excel',className: 'excelButton',exportOptions: { columns: [0, 1, 2, 3] } },
+                        { extend: 'pdf',className: 'pdfButton',exportOptions: { columns: [0, 1, 2, 3] } },
+                        { extend: 'print',className: 'printButton',exportOptions: { columns: [0, 1, 2, 3] } 
+                }]
+            }
+        });
+    }); 
+</script> 

@@ -23,7 +23,7 @@ $(document).ready(function(){
 			data : { stateId : stateId } 
 			}).done(function(data){
 				currentRow.parents('tr').remove();
-				if(data.status = true) { alert("State successfully deleted"); window.location.reload();}
+				if(data.status = true) { alert("State successfully deleted"); $('#mytable').DataTable().ajax.reload();}
 				else if(data.status = false) { alert("State deletion failed"); }
 				else { alert("Access denied..!"); }
 			});

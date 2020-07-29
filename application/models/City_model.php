@@ -11,6 +11,13 @@ class City_model extends CI_Model{
         return $query->result();
     }
 
+    public function get_city_total(){
+        $query = $this->db->select("COUNT(*) as num")->where('tbl_city.isDeleted', 0)->get("tbl_city");
+        $result = $query->row();
+        if(isset($result)) return $result->num;
+        return 0;
+    }
+
     public function addNewCity($cityInfo)
     {
         $this->db->trans_start();

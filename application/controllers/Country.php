@@ -22,9 +22,34 @@ class Country extends BaseController
      */
     public function index()
     {   
-        $data['data'] = $this->Country_model->get_country();
         $this->global['pageTitle'] = 'CodeInsect : Country Listing'; 
-        $this->loadViews("country/list", $this->global, $data, NULL);
+        $this->loadViews("country/list", $this->global, NULL, NULL);
+    }
+    public function getCountry()
+    {   
+        $datas = $this->Country_model->get_country();
+        $count = $this->Country_model->get_country_total();
+        $data = array();
+        foreach($datas as $rows)
+        {
+
+            $data[]= array(
+                $rows->name,
+                $rows->code,
+                $rows->phone_code,
+                ($rows->status == '1')?'<span class="badge progress-bar-success">Active</span>':'<span class="badge progress-bar-danger">InActive</span>',
+                $rows->createdDtm,
+                "<a class='btn btn-sm btn-info' href='country/editCountry/$rows->id' title='Edit'><i class='fa fa-pencil'></i></a>
+                <a class='btn btn-sm btn-danger deleteCountry' href='#' data-countryid='$rows->id' title='Delete'><i class='fa fa-trash'></i></a>",
+            );     
+        }
+        $results = array(
+            "draw" => $this->input->get('draw'),
+            "recordsTotal" => $count,
+            "recordsFiltered" => $count,
+            "data" => $data 
+        );
+        echo json_encode($results);
     }
     public function createCountry()
     {

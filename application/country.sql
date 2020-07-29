@@ -24,3 +24,20 @@ CREATE TABLE `tbl_state` (
  `updatedDtm` datetime NOT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+
+CREATE TABLE `tbl_city` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(191) COLLATE latin1_general_ci NOT NULL,
+ `country_id` int(11) NOT NULL,
+ `state_id` int(11) NOT NULL,
+ `status` enum('0','1') COLLATE latin1_general_ci NOT NULL DEFAULT '0',
+ `isDeleted` tinyint(4) NOT NULL DEFAULT '0',
+ `createdBy` int(11) NOT NULL,
+ `createdDtm` datetime NOT NULL,
+ `updatedBy` int(11) NOT NULL,
+ `updatedDtm` datetime NOT NULL,
+ PRIMARY KEY (`id`),
+ KEY `country_id` (`country_id`),
+ KEY `state_id` (`state_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci
+

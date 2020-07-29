@@ -18,9 +18,32 @@ class State extends BaseController
     }
     public function index()
     {
-        $data['data'] = $this->State_model->get_state();
         $this->global['pageTitle'] = 'CodeInsect : State Listing'; 
-        $this->loadViews("state/list", $this->global, $data, NULL);
+        $this->loadViews("state/list", $this->global, NULL, NULL);
+    }
+    public function getState()
+    {   
+        $datas = $this->State_model->get_state();
+        $count = $this->State_model->get_state_total();
+        $data = array();
+        foreach($datas as $rows)
+        {
+            $data[]= array(
+                $rows->name,
+                $rows->country_name,
+                ($rows->status == '1')?'<span class="badge progress-bar-success">Active</span>':'<span class="badge progress-bar-danger">InActive</span>',
+                $rows->createdDtm,
+                "<a class='btn btn-sm btn-info' href='state/editState/$rows->id' title='Edit'><i class='fa fa-pencil'></i></a>
+                <a class='btn btn-sm btn-danger deleteState' href='#' data-stateid='$rows->id' title='Delete'><i class='fa fa-trash'></i></a>",
+            );     
+        }
+        $results = array(
+            "draw" => $this->input->get('draw'),
+            "recordsTotal" => $count,
+            "recordsFiltered" => $count,
+            "data" => $data 
+        );
+        echo json_encode($results);
     }
     public function createState()
     {

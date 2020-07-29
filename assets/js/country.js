@@ -23,7 +23,7 @@ $(document).ready(function(){
 			data : { countryId : countryId } 
 			}).done(function(data){
 				currentRow.parents('tr').remove();
-				if(data.status = true) { alert("Country successfully deleted"); window.location.reload();}
+				if(data.status = true) { alert("Country successfully deleted"); $('#mytable').DataTable().ajax.reload(); }
 				else if(data.status = false) { alert("Country deletion failed"); }
 				else { alert("Access denied..!"); }
 			});

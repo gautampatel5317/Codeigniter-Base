@@ -10,6 +10,13 @@ class State_model extends CI_Model{
         return $query->result();
     }
 
+    public function get_state_total(){
+        $query = $this->db->select("COUNT(*) as num")->where('tbl_state.isDeleted', 0)->get("tbl_state");
+        $result = $query->row();
+        if(isset($result)) return $result->num;
+        return 0;
+    }
+
     public function addNewState($stateInfo)
     {
         $this->db->trans_start();
